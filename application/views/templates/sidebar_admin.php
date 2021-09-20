@@ -33,9 +33,18 @@
 
     <!-- Nav Item - Kehadiran -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-address-book"></i>
-            <span>Daftar Hadir</span></a>
+            <span>Kehadiran</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!-- belum di direct -->
+                <a class="collapse-item" href="<?= base_url('') ?>">Konfirmasi Kehadiran</a>
+                <a class="collapse-item" href="<?= base_url('') ?>">Tabel Kehadiran</a>
+                <a class="collapse-item" href="<?= base_url('') ?>">Rekap Kehadiran</a>
+            </div>
+        </div>
     </li>
 
     <!-- Divider -->
