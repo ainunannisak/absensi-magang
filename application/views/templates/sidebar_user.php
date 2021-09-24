@@ -33,7 +33,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- belum di direct -->
-                <a class="collapse-item" href="<?= base_url('') ?>">Entri Kehadiran</a>
+                <a class="collapse-item" href="<?= base_url('absensi/entri') ?>">Entri Kehadiran</a>
                 <a class="collapse-item" href="<?= base_url('') ?>">Tabel Kehadiran</a>
                 <a class="collapse-item" href="<?= base_url('') ?>">Rekap Kehadiran</a>
             </div>
