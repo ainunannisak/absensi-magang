@@ -21,7 +21,7 @@
                             <td><?= $sakit ?></td>
                         </tr>
                         <tr>
-                            <td>Ijin</td>
+                            <td>Izin</td>
                             <td><?= $ijin ?></td>
                         </tr>
                     </thead>

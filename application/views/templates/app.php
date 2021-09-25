@@ -41,13 +41,15 @@
                 <?php $this->load->view('templates/topbar') ?>
                 <!-- End of Topbar -->
                 <!-- Profile -->
-                <?php
-                if ($this->session->userdata('role_id') == 1) {
-                    $this->load->view('admin/index');
-                } else {
-                    $this->load->view('user/index');
-                }
-                ?>
+                <div class="container-fluid">
+                    <?php
+                    if (isset($page)) {
+                        $this->load->view($page);
+                    } else {
+                    }
+                    ?>
+                </div>
+
                 <!-- Profile -->
             </div>
             <!-- Footer -->

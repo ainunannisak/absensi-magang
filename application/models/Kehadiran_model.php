@@ -9,7 +9,7 @@ class Kehadiran_model extends CI_Model
         $format = "d-M-Y";
         $this->db->select('presents.*, users.name');
         $this->db->from('presents');
-        $this->db->join('users', 'users.id_users = presents.user_id');
+        $this->db->join('users', 'users.id = presents.user_id');
         $this->db->where('presents.date', date($format));
         $this->db->where('status', 0);
         return $this->db->get()->result_array();
@@ -28,7 +28,7 @@ class Kehadiran_model extends CI_Model
         $format = "d-M-Y";
         $this->db->select('presents.*, users.name, positions.position_name');
         $this->db->from('presents');
-        $this->db->join('users', 'users.id_users = presents.user_id');
+        $this->db->join('users', 'users.id = presents.user_id');
         $this->db->join('positions', 'positions.id_positions = users.position_id');
         $this->db->like('date', date($format));
         $this->db->where('status', 1);
@@ -42,7 +42,7 @@ class Kehadiran_model extends CI_Model
 				(SELECT COUNT(information) FROM presents WHERE (information = 'M') AND (STATUS = 1) AND (presents.user_id = users.id_users)) AS M,
 				(SELECT COUNT(information) FROM presents WHERE (information = 'I') AND (STATUS = 1) AND (presents.user_id = users.id_users)) AS I,
 				(SELECT COUNT(information) FROM presents WHERE (information = 'S') AND (STATUS = 1) AND (presents.user_id = users.id_users)) AS S,
-				(SELECT COUNT(information) FROM presents WHERE (STATUS = 1) AND (presents.user_id = users.id_users)) AS total
+				(SELECT COUNT(information) FROM presents WHERE (STATUS = 1) AND (presents.user_id = users.id)) AS total
 			FROM presents JOIN users
 			ON presents.user_id = users.id_users
 			JOIN positions ON users.position_id = positions.id_positions

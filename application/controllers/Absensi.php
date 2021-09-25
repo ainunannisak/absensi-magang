@@ -3,19 +3,26 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Absensi extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('absensi_model', 'absensi');
+    }
 
     public function entri()
     {
         $data['title'] = 'Entri Kehadiran';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
         $data['page']    = 'user/kehadiran/entri';
 
-        $this->load->view('templates/footer', $data);
+        $this->load->view('templates/app', $data);
     }
 
     public function masuk()
     {
         $data = [
-            'user_id'        => $this->session->userdata('id_users'),
+            'user_id'        => $this->session->userdata('email'),
             'date'            => date('Y-m-d'),
             'time'            => date('H:i:s'),
             'information'    => 'M',
@@ -31,7 +38,7 @@ class Absensi extends CI_Controller
     public function ijin()
     {
         $data = [
-            'user_id'        => $this->session->userdata('id_users'),
+            'user_id'        => $this->session->userdata('email'),
             'date'            => date('Y-m-d'),
             'time'            => date('H:i:s'),
             'information'    => 'I',
@@ -47,7 +54,7 @@ class Absensi extends CI_Controller
     public function sakit()
     {
         $data = [
-            'user_id'        => $this->session->userdata('id_users'),
+            'user_id'        => $this->session->userdata('email'),
             'date'            => date('Y-m-d'),
             'time'            => date('H:i:s'),
             'information'    => 'S',

@@ -7,7 +7,7 @@
     </div>
 <?php endif ?>
 
-<form action="" method="POST">
+<form action="" method="POST" class="col">
 
     <div class="card">
         <h5 class="card-header">Entri Kehadiran</h5>
@@ -32,7 +32,7 @@
                 <label for="information" class="col-sm-2 col-form-label">Tanggal</label>
                 <div class="col-sm-6">
                     <a href="<?= base_url('absensi/masuk') ?>" class="btn btn-success mr-3">Masuk</a>
-                    <a href="<?= base_url('absensi/ijin') ?>" class="btn btn-warning text-light mr-3">Ijin</a>
+                    <a href="<?= base_url('absensi/ijin') ?>" class="btn btn-warning text-light mr-3">Izin</a>
                     <a href="<?= base_url('absensi/sakit') ?>" class="btn btn-danger mr-3">Sakit</a>
                 </div>
             </div>
