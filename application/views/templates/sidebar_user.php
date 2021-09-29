@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('user') ?>">
         <div class="sidebar-brand-icon">
             <i class="fas fa-address-card"></i>
         </div>
@@ -19,14 +19,14 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="<?= base_url('user/profile') ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>Profile</span></a>
     </li>
 
     <!-- Nav Item - Kehadiran -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-address-book"></i>
             <span>Kehadiran</span>
         </a>
@@ -34,8 +34,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- belum di direct -->
                 <a class="collapse-item" href="<?= base_url('absensi/entri') ?>">Entri Kehadiran</a>
-                <a class="collapse-item" href="<?= base_url('') ?>">Tabel Kehadiran</a>
-                <a class="collapse-item" href="<?= base_url('') ?>">Rekap Kehadiran</a>
+                <a class="collapse-item" href="<?= base_url('absensi/tabel') ?>">Tabel Kehadiran</a>
             </div>
         </div>
     </li>

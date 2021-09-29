@@ -57,15 +57,6 @@ class Kehadiran extends CI_Controller
 
         $this->load->view('templates/app', $data);
     }
-
-    public function rekap_kehadiran()
-    {
-        $data['title']   = 'Rekap Kehadiran';
-        $data['page']      = 'admin/kehadiran/rekap';
-        $data['rekap']   = $this->kehadiran->getRekap();
-
-        $this->load->view('templates/app', $data);
-    }
 }
 
 /* End of file Controllername.php */

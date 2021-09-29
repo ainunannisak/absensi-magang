@@ -11,18 +11,18 @@ class Admin_model extends CI_Model
 
     public function getAdminProfile()
     {
-        return $this->db->get_where('users', ['id_users' => 1])->row_array();
+        return $this->db->get_where('user', ['id_users' => 1])->row_array();
     }
 
     public function updateProfile($data)
     {
-        $this->db->update('users', $data, ['id_users' => 1]);
+        $this->db->update('user', $data, ['id_users' => 1]);
         return $this->db->affected_rows();
     }
 
     public function updatePassword($data)
     {
-        $this->db->update('users', $data, ['id_users' => 1]);
+        $this->db->update('user', $data, ['id_users' => 1]);
         return $this->db->affected_rows();
     }
 }

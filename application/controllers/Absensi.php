@@ -13,11 +13,11 @@ class Absensi extends CI_Controller
     {
         $data['title'] = 'Entri Kehadiran';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
         $data['page']    = 'user/kehadiran/entri';
 
         $this->load->view('templates/app', $data);
     }
+
 
     public function masuk()
     {
@@ -65,5 +65,15 @@ class Absensi extends CI_Controller
         $this->session->set_flashdata('message', 'Entri kehadiran berhasil. Silahkan tunggu konfirmasi oleh administator.');
 
         redirect(base_url('absensi/entri'));
+    }
+
+    public function tabel()
+    {
+        $data['title']     = 'Tabel Kehadiran';
+        $data['page']        = 'user/kehadiran/tabel';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['absensi']     = $this->absensi->getAbsensi();
+
+        $this->load->view('templates/app', $data);
     }
 }

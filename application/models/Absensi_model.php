@@ -11,14 +11,14 @@ class Absensi_model extends CI_Model
 
     public function getAbsensi()
     {
-        $this->db->where('user_id', $this->session->userdata('id_users'));
+        $this->db->where('user_id', $this->session->userdata('email'));
         $this->db->like('date', date('m'));
         return $this->db->get('presents')->result_array();
     }
 
     public function getHadir()
     {
-        $this->db->where('user_id', $this->session->userdata('id_users'));
+        $this->db->where('user_id', $this->session->userdata('email'));
         $this->db->where('status', 1);
         $this->db->like('date', date('m'));
         $this->db->where('information', 'M');
@@ -27,7 +27,7 @@ class Absensi_model extends CI_Model
 
     public function getIjin()
     {
-        $this->db->where('user_id', $this->session->userdata('id_users'));
+        $this->db->where('user_id', $this->session->userdata('email'));
         $this->db->where('status', 1);
         $this->db->like('date', date('m'));
         $this->db->where('information', 'I');
@@ -36,7 +36,7 @@ class Absensi_model extends CI_Model
 
     public function getSakit()
     {
-        $this->db->where('user_id', $this->session->userdata('id_users'));
+        $this->db->where('user_id', $this->session->userdata('email'));
         $this->db->where('status', 1);
         $this->db->like('date', date('m'));
         $this->db->where('information', 'S');
