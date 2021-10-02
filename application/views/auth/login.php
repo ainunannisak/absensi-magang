@@ -28,16 +28,16 @@
                                     </div>
 
                                     <button type="submit" class="btn btn-primary btn-user btn-block">
-                                        Login
+                                        Masuk
                                     </button>
 
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                    <a class="small" href="forgot-password.html">Lupa Password?</a>
                                 </div>
                                 <div class="text-center">
-                                    <a class="small" href="<?= base_url('auth/registration'); ?>">Create an Account!</a>
+                                    <a class="small" href="<?= base_url('auth/registration'); ?>">Belum punya akun? Daftar</a>
                                 </div>
                             </div>
                         </div>
