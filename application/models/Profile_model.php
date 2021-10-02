@@ -11,7 +11,7 @@ class Profile_model extends CI_Model
 
     public function updateProfile($id, $data)
     {
-        $this->db->update('user', $data, ['email' => $id]);
+        $this->db->update('user', $data, ['id_users' => $id]);
     }
 
     public function uploadImage()

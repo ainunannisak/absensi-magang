@@ -7,7 +7,7 @@ class User extends CI_Controller
     {
         parent::__construct();
         $this->load->model('profile_model', 'profile');
-        $this->load->model('anggota_model', 'anggota');
+        //$this->load->model('anggota_model', 'anggota');
         $this->load->model('user_model', 'user');
     }
 
@@ -16,14 +16,7 @@ class User extends CI_Controller
         $data['title'] = 'Dashboard';
         $data['page'] = 'user/index';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-        //echo 'Selamat datang ' . $data['user']['name'];
-
         $this->load->view('templates/app', $data);
-        //$this->load->view('templates/sidebar_user', $data);
-        //$this->load->view('templates/topbar', $data);
-        //$this->load->view('user/index', $data);
-        //$this->load->view('templates/footer');
     }
 
     public function profile()
@@ -34,6 +27,9 @@ class User extends CI_Controller
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email', [
             'required' => 'Email tidak boleh kosong.'
         ]);
+        $this->form_validation->set_rules('asal', 'Asal', 'required|trim', [
+            'required' => 'Asal institusi tidak boleh kosong.'
+        ]);
 
         if ($this->form_validation->run() == FALSE) {
             $id = $this->session->userdata('email');
@@ -42,6 +38,7 @@ class User extends CI_Controller
             $data['title']        = 'Biodata';
             $data['page']         = 'user/profile/profile';
             $data['user']         = $user;
+            $data['position'] = $this->Crud->ga('positions');
             //$data['position'] = $this->anggota->getPosition();
 
             $this->load->view('templates/app', $data);
@@ -51,6 +48,9 @@ class User extends CI_Controller
             $data = [
                 'name'    => $this->input->post('name'),
                 'email'     => $this->input->post('email'),
+                'asal'     => $this->input->post('asal'),
+                'durasi'    => $this->input->post('durasi'),
+                'position_id'  => $this->input->post('position_id')
             ];
 
             // Jika foto diubah

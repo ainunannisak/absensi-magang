@@ -15,7 +15,19 @@
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $user['name']; ?></span>
-                <img class="img-profile rounded-circle" src="<?= base_url('assets/img/profile/') . $user['image']; ?>">
+                <?php
+
+                if ($user['image'] == 'default.jpg') {
+                ?>
+                    <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-profile rounded-circle" alt="...">
+                <?php
+                } else {
+
+                ?>
+                    <img src="<?= base_url('assets/img/image/') . $user['image']; ?>" class="img-profile rounded-circle" alt="...">
+                <?php
+                }
+                ?>
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -23,7 +35,14 @@
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
                 </a>
-                <a class="dropdown-item" href="<?= base_url('user/change_password') ?>">
+                <?php
+                if ($user['role_id'] == 1) {
+                    $url = base_url('admin/change_password');
+                } else {
+                    $url = base_url('user/change_password');
+                }
+                ?>
+                <a class="dropdown-item" href="<?= $url; ?>">
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                     Ubah Password
                 </a>

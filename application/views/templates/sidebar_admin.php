@@ -19,30 +19,35 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('index') ?>">
+        <a class="nav-link" href="<?= base_url('admin/') ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
 
     <!-- Nav Item - Data Mahasiswa -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-users"></i>
-            <span>Data Mahasiswa</span></a>
+            <span>Data Anggota</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="<?= base_url('anggota/Mahasiswa') ?>">Mahasiswa</a>
+                <a class="collapse-item" href="<?= base_url('anggota/Siswa') ?>">Siswa</a>
+            </div>
+        </div>
     </li>
 
     <!-- Nav Item - Kehadiran -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-address-book"></i>
+            <i class="fas fa-fw fa-users"></i>
             <span>Kehadiran</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <!-- belum di direct -->
-                <a class="collapse-item" href="<?= base_url('') ?>">Konfirmasi Kehadiran</a>
-                <a class="collapse-item" href="<?= base_url('') ?>">Tabel Kehadiran</a>
-
+                <a class="collapse-item" href="<?= base_url('') ?>"></a>
+                <a class="collapse-item" href="<?= base_url('') ?>"></a>
             </div>
         </div>
     </li>

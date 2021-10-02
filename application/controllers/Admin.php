@@ -7,17 +7,15 @@ class Admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        is_login();
-        is_admin();
         $this->load->model('admin_model', 'admin');
     }
 
     public function index()
     {
         $data['title'] = 'Dashboard';
-        $data['page'] = 'dashboard/index';
+        $data['page'] = 'admin/dashboard';
+        $data['user'] = $this->db->get_where('user', ['id_users' => $this->session->userdata('id_users')])->row_array();
         $this->load->view('templates/app', $data);
-        //$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         //echo 'Selamat datang ' . $data['user']['name'];
 
         //$this->load->view('templates/app', $data);
@@ -29,6 +27,7 @@ class Admin extends CI_Controller
 
     public function change_password()
     {
+
         $this->form_validation->set_rules('new_password', 'Password Baru', 'required|trim', [
             'required' => 'Password baru tidak boleh kosong.',
         ]);

@@ -36,11 +36,11 @@ class Auth extends CI_Controller
                 if (password_verify($password, $user['password'])) {
                     $data = [
                         'email' => $user['email'],
-                        'role_id' => $user['role_id']
+                        'role_id' => $user['role_id'],
                     ];
                     $this->session->set_userdata($data);
                     // split content belum berfungsi. user admin masuk ke dashbooard user
-                    if ($user['role_id' == 1]) {
+                    if ($user['role_id'] == 1) {
                         redirect('admin');
                     } else {
                         redirect('user');
@@ -82,7 +82,7 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'ABSENSI PKL';
+            $data['title'] = 'ABSENSI MAGANG';
             $this->load->view('templates/auth_header', $data);
             $this->load->view('auth/registration');
             $this->load->view('templates/auth_footer');

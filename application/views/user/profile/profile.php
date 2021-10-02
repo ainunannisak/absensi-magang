@@ -28,16 +28,40 @@
     </div>
 </div>
 
+
 <div class="form-group row">
     <label for="position" class="col-sm-2 col-form-label">Status</label>
     <div class="col-sm-6">
         <select name="position_id" class="form-control" readonly>
             <?php foreach ($position as $p) : ?>
-                <option value="<?= $p['id_positions'] ?>" <?php if ($user['position_id'] == $p['id_positions']) {
-                                                                print ' selected';
-                                                            } ?>><?= $p['position_name'] ?></option>
+                <option value="<?= $p->id_positions; ?>" <?= $p->id_positions == $user['position_id'] ? 'selected' : '' ?>>
+                    <?= $p->position_name; ?>
+                </option>
             <?php endforeach ?>
         </select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="durasi" class="col-sm-2 col-form-label">Lama Magang</label>
+    <div class="col-sm-6">
+        <select name="durasi" class="form-control" id="durasi" aria-readonly="true">
+            <option>1 Bulan</option>
+            <option>2 Bulan</option>
+            <option>3 Bulan</option>
+            <option>4 Bulan</option>
+            <option>5 Bulan</option>
+            <option>6 Bulan</option>
+            <option>>6 Bulan</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="name" class="col-sm-2 col-form-label">Asal</label>
+    <div class="col-sm-6">
+        <input type="text" class="form-control" id="asal" name="asal" value="<?= $user['asal'] ?>">
+        <?= form_error('asal', '<small class="text-danger mt-1">', '</small>'); ?>
     </div>
 </div>
 
@@ -45,7 +69,7 @@
     <label for="image" class="col-sm-2 col-form-label">Foto</label>
     <div class="col-sm-6">
         <?php if (!empty($user['image'])) : ?>
-            <img src="<?= base_url('image/' . $user['image']) ?>" height="150">
+            <img src="<?= base_url('image/') . $user['image']; ?>" height="150">
         <?php else : ?>
             <p>No Photo</p>
         <?php endif; ?>

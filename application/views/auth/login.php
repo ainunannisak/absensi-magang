@@ -17,7 +17,7 @@
 
                                 <?= $this->session->flashdata('message') ?>
 
-                                <form class="user" method="POST" action="<?= base_url('auth') ?>">
+                                <form class="user" method="POST" action="<?= base_url('auth'); ?>">
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user" id="email" name="email" value="<?= set_value('email'); ?>" placeholder="Email Address">
                                         <?= form_error('email', '<small class="text-danger pl-3">', '</small'); ?>
