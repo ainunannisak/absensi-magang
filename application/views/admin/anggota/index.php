@@ -1,4 +1,4 @@
-<h2 class="mb-4">Data <?= $title ?></h2>
+<h2 class="mb-4">Data Anggota <?= $title ?></h2>
 
 <?php if ($this->session->flashdata('message')) : ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
