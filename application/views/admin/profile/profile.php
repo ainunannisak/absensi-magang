@@ -1,4 +1,4 @@
-<h2 class="mb-4">Biodata Saya</h2>
+<h2 class="mb-4">Data Admin</h2>
 
 <form action="<?= base_url('admin/profile') ?>" method="post">
 

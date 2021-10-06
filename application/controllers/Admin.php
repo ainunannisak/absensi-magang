@@ -7,6 +7,8 @@ class Admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+
+        is_admin();
         $this->load->model('admin_model', 'admin');
     }
 
@@ -14,20 +16,41 @@ class Admin extends CI_Controller
     {
         $data['title'] = 'Dashboard';
         $data['page'] = 'admin/dashboard';
-        $data['user'] = $this->db->get_where('user', ['id_users' => $this->session->userdata('id_users')])->row_array();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->view('templates/app', $data);
-        //echo 'Selamat datang ' . $data['user']['name'];
+    }
 
-        //$this->load->view('templates/app', $data);
-        //$this->load->view('templates/sidebar_admin', $data);
-        //$this->load->view('templates/topbar', $data);
-        //$this->load->view('admin/index', $data);
-        //this->load->view('templates/footer');
+    public function profile()
+    {
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[users.email]', [
+            'required' => 'Email tidak boleh kosong.',
+            'is_unique' => 'Email sudah terdaftar.'
+        ]);
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['title']        = 'Data Admin';
+            $data['page']         = 'admin/profile/profile';
+            $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+            $data['admin']        = $this->admin->getAdminProfile();
+            $data['position'] = $this->admin->getPosition();
+
+            $this->load->view('templates/app', $data);
+        } else {
+            $data = [
+                'email' => $this->input->post('email'),
+
+            ];
+
+            $this->admin->updateProfile($data);
+            $this->session->set_flashdata('message', 'Data admin berhasil diupdate.');
+
+            redirect(base_url('admin'));
+        }
     }
 
     public function change_password()
     {
-
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $this->form_validation->set_rules('new_password', 'Password Baru', 'required|trim', [
             'required' => 'Password baru tidak boleh kosong.',
         ]);
@@ -42,6 +65,7 @@ class Admin extends CI_Controller
 
             $this->load->view('templates/app', $data);
         } else {
+
             $data = [
                 'password' => password_hash($this->input->post('new_password'), PASSWORD_DEFAULT),
             ];

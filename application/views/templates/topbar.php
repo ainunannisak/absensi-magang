@@ -14,12 +14,12 @@
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $user['name']; ?></span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $user['name'] ?></span>
                 <?php
 
-                if ($user['image'] == 'default.jpg') {
+                if (empty($user['image'])) {
                 ?>
-                    <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-profile rounded-circle" alt="...">
+                    <img src="<?= base_url('assets/img/profile/default.jpg') . $user['image']; ?>" class="img-profile rounded-circle" alt="...">
                 <?php
                 } else {
 
@@ -31,21 +31,25 @@
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="<?= base_url('user/profile'); ?>">
-                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
-                </a>
-                <?php
-                if ($user['role_id'] == 1) {
-                    $url = base_url('admin/change_password');
-                } else {
-                    $url = base_url('user/change_password');
-                }
-                ?>
-                <a class="dropdown-item" href="<?= $url; ?>">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Ubah Password
-                </a>
+                <?php if ($this->session->userdata('role_id') == 1) : ?>
+                    <a class="dropdown-item" href="<?= base_url('admin/profile'); ?>">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Profile
+                    </a>
+                    <a class="dropdown-item" href="<?= base_url('admin/change_password'); ?>">
+                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Ubah Password
+                    </a>
+                <?php else : ?>
+                    <a class="dropdown-item" href="<?= base_url('user/profile'); ?>">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Profile
+                    </a>
+                    <a class="dropdown-item" href="<?= base_url('user/change_password'); ?>">
+                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Ubah Password
+                    </a>
+                <?php endif ?>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="<?= base_url('auth/logout'); ?>" data-toggle="modal" data-target="#logoutModal">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

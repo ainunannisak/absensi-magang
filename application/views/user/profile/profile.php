@@ -32,7 +32,7 @@
 <div class="form-group row">
     <label for="position" class="col-sm-2 col-form-label">Status</label>
     <div class="col-sm-6">
-        <select name="position_id" class="form-control" readonly>
+        <select name="position_id" class="form-control" aria-readonly="true">
             <?php foreach ($position as $p) : ?>
                 <option value="<?= $p->id_positions; ?>" <?= $p->id_positions == $user['position_id'] ? 'selected' : '' ?>>
                     <?= $p->position_name; ?>
@@ -46,13 +46,27 @@
     <label for="durasi" class="col-sm-2 col-form-label">Lama Magang</label>
     <div class="col-sm-6">
         <select name="durasi" class="form-control" id="durasi" aria-readonly="true">
-            <option>1 Bulan</option>
-            <option>2 Bulan</option>
-            <option>3 Bulan</option>
-            <option>4 Bulan</option>
-            <option>5 Bulan</option>
-            <option>6 Bulan</option>
-            <option>>6 Bulan</option>
+            <option value="1" <?php if ($user['durasi'] == "1") {
+                                    print ' selected';
+                                } ?>>1 Bulan</option>
+            <option value="2" <?php if ($user['durasi'] == "2") {
+                                    print ' selected';
+                                } ?>>2 Bulan</option>
+            <option value="3" <?php if ($user['durasi'] == "3") {
+                                    print ' selected';
+                                } ?>>3 Bulan</option>
+            <option value="4" <?php if ($user['durasi'] == "4") {
+                                    print ' selected';
+                                } ?>>4 Bulan</option>
+            <option value="5" <?php if ($user['durasi'] == "5") {
+                                    print ' selected';
+                                } ?>>5 Bulan</option>
+            <option value="6" <?php if ($user['durasi'] == "6") {
+                                    print ' selected';
+                                } ?>>6 Bulan</option>
+            <option value="7" <?php if ($user['durasi'] == "7") {
+                                    print ' selected';
+                                } ?>>>6 Bulan</option>
         </select>
     </div>
 </div>
@@ -68,11 +82,18 @@
 <div class="form-group row">
     <label for="image" class="col-sm-2 col-form-label">Foto</label>
     <div class="col-sm-6">
-        <?php if (!empty($user['image'])) : ?>
-            <img src="<?= base_url('image/') . $user['image']; ?>" height="150">
-        <?php else : ?>
-            <p>No Photo</p>
-        <?php endif; ?>
+        <?php
+        if (empty($user['image'])) {
+        ?>
+            <img src="<?= base_url('assets/img/profile/default.jpg') . $user['image']; ?>" height="150" alt="...">
+        <?php
+        } else {
+
+        ?>
+            <img src="<?= base_url('assets/img/image/') . $user['image']; ?>" height="150" alt="...">
+        <?php
+        }
+        ?>
         <br>
         <small><span class="text-danger">*</span> Maksimal ukuran gambar adalah 3 MB</small>
         <br> <br>

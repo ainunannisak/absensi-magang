@@ -12,22 +12,20 @@
 <table class="table table-bordered text-center">
     <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Stambuk</th>
+            <th scope="col">No</th>
             <th scope="col">Foto</th>
             <th scope="col">Nama</th>
-            <th>Aksi</th>
+            <th>Asal Institusi</th>
         </tr>
     </thead>
     <tbody>
         <?php $no = 1; ?>
-        <?php foreach ($user as $user) : ?>
+        <?php foreach ($users as $user) : ?>
             <tr>
                 <td><?= $no++; ?></td>
-                <td><?= $user['no_stambuk'] ?></td>
                 <td>
                     <?php if (isset($user['image'])) : ?>
-                        <img src="<?= base_url('image/' . $user['image']) ?>" style="height:100px; widht:100px;">
+                        <img src="<?= base_url('assets/img/image/' . $user['image']) ?>" style="height:100px; widht:100px;">
                     <?php else : ?>
                         No Photo
                     <?php endif; ?>

@@ -6,6 +6,7 @@ class User extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        is_login();
         $this->load->model('profile_model', 'profile');
         //$this->load->model('anggota_model', 'anggota');
         $this->load->model('user_model', 'user');
@@ -30,6 +31,9 @@ class User extends CI_Controller
         $this->form_validation->set_rules('asal', 'Asal', 'required|trim', [
             'required' => 'Asal institusi tidak boleh kosong.'
         ]);
+        $this->form_validation->set_rules('durasi', 'Durasi', 'required', [
+            'required' => 'Durasi harus dipilih.'
+        ]);
 
         if ($this->form_validation->run() == FALSE) {
             $id = $this->session->userdata('email');
@@ -50,26 +54,32 @@ class User extends CI_Controller
                 'email'     => $this->input->post('email'),
                 'asal'     => $this->input->post('asal'),
                 'durasi'    => $this->input->post('durasi'),
+                'image' => $this->input->post('image'),
                 'position_id'  => $this->input->post('position_id')
             ];
 
-            // Jika foto diubah
-            if (!empty($_FILES['image']['name'])) {
-                $upload      = $this->profile->uploadImage();
 
-                // Jika upload berhasil
-                if ($upload) {
-                    // Ambil data user
-                    $imageProfile = $this->profile->getProfile($id);
-                    // Hapus foto user sebelum di update
-                    if (file_exists('image/' . $imageProfile['image']) && $imageProfile['image']) {
-                        unlink('image/' . $imageProfile['image']);
+            if ((!isset($_FILES['image'])) || $_FILES['image']['size'] == 0) {
+                $this->form_validation->set_rules('validate_image', 'required', ['required' => 'The {field} field is required']);
+            } else {
+                // Jika foto diubah
+                if (!empty($_FILES['image']['name'])) {
+                    $upload      = $this->profile->uploadImage();
+
+                    // Jika upload berhasil
+                    if ($upload) {
+                        // Ambil data user
+                        $imageProfile = $this->profile->getProfile($id);
+                        // Hapus foto user sebelum di update
+                        if (file_exists('assets/img/image/' . $imageProfile['image']) && $imageProfile['image']) {
+                            unlink('assets/img/image/' . $imageProfile['image']);
+                        }
+
+                        // Timpa data foto dengan nama yg baru
+                        $data['image'] = $upload;
+                    } else {
+                        redirect(base_url("user/profile"));
                     }
-
-                    // Timpa data foto dengan nama yg baru
-                    $data['image'] = $upload;
-                } else {
-                    redirect(base_url("user/profile"));
                 }
             }
 

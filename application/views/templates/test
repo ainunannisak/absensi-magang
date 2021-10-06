@@ -1,38 +1,69 @@
  <!-- Page Wrapper -->
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <?php
+ <div id="wrapper">
+     <!-- Sidebar -->
+     <?php
         if ($this->session->userdata('role_id') == 1) {
             $this->load->view('templates/sidebar_admin');
         } else {
             $this->load->view('templates/sidebar_user');
         }
         ?>
-        <!-- End of Sidebar -->
+     <!-- End of Sidebar -->
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-            <!-- Main Content -->
-            <div id="content">
-                <!-- Topbar -->
-                <?php $this->load->view('templates/topbar') ?>
-                <!-- End of Topbar -->
-                <!-- Profile -->
-                <?php
+     <!-- Content Wrapper -->
+     <div id="content-wrapper" class="d-flex flex-column">
+         <!-- Main Content -->
+         <div id="content">
+             <!-- Topbar -->
+             <?php $this->load->view('templates/topbar') ?>
+             <!-- End of Topbar -->
+             <!-- Profile -->
+             <?php
                 if ($this->session->userdata('role_id') == 1) {
                     $this->load->view('admin/index');
                 } else {
                     $this->load->view('user/index');
                 }
                 ?>
-                <!-- Profile -->
-                <!-- Footer -->
-                <?php $this->load->view('templates/footer') ?>
-                <!-- End of Footer -->
-            </div>
-            <!-- End of Main Content -->
+             <!-- Profile -->
+             <!-- Footer -->
+             <?php $this->load->view('templates/footer') ?>
+             <!-- End of Footer -->
+         </div>
+         <!-- End of Main Content -->
 
-        </div>
-        <!-- End of Content Wrapper -->
+     </div>
+     <!-- End of Content Wrapper -->
 
+     image topbar
+     <?php
 
+        if ($user['image'] == 'default.jpg') {
+        ?>
+         <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-profile rounded-circle" alt="...">
+     <?php
+        } else {
+
+        ?>
+         <img src="<?= base_url('assets/img/image/') . $user['image']; ?>" class="img-profile rounded-circle" alt="...">
+     <?php
+        }
+        ?>
+
+     <?php foreach ($absensi as $a) : ?>
+         <tr>
+             <td><?= $no++; ?></td>
+             <td><?= $a['name'] ?></td>
+             <td><?= $a['date'] ?></td>
+             <td><?= $a['position_name'] ?></td>
+             <td>
+                 <?php if ($a['information'] == 'M') : ?>
+                     <div class="badge badge-success">Masuk</div>
+                 <?php elseif ($a['information'] == 'I') : ?>
+                     <div class="badge badge-warning">Ijin</div>
+                 <?php else : ?>
+                     <div class="badge badge-danger">Sakit</div>
+                 <?php endif ?>
+             </td>
+         </tr>
+     <?php endforeach ?>

@@ -17,7 +17,7 @@ class Profile_model extends CI_Model
     public function uploadImage()
     {
         $config = [
-            'upload_path'     => './image',
+            'upload_path'     => 'assets/img/image/',
             'encrypt_name'    => TRUE,
             'allowed_types'   => 'jpg|jpeg|png|JPG|PNG|JPEG',
             'max_size'        => 3000,

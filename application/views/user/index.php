@@ -8,9 +8,9 @@
         <div class="row no-gutters">
             <div class="col-md-4">
                 <?php
-                if ($user['image'] == 'default.jpg') {
+                if (empty($user['image'])) {
                 ?>
-                    <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="card-img" alt="...">
+                    <img src="<?= base_url('assets/img/profile/default.jpg') . $user['image']; ?>" class="card-img" alt="...">
                 <?php
                 } else {
 
