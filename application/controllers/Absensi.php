@@ -14,7 +14,6 @@ class Absensi extends CI_Controller
         $data['title'] = 'Entri Kehadiran';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['page']    = 'user/kehadiran/entri';
-
         $this->load->view('templates/app', $data);
     }
 
