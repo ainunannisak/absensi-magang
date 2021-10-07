@@ -11,40 +11,42 @@
                         <div class="col-lg">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">SISTEM INFORMASI PRESENSI MAGANG</h1>
-
-                                </div>
-
-                                <?= $this->session->flashdata('message') ?>
-
-                                <form class="user" method="POST" action="<?= base_url('auth'); ?>">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="email" name="email" value="<?= set_value('email'); ?>" placeholder="Email Address">
-                                        <?= form_error('email', '<small class="text-danger pl-3">', '</small'); ?>
+                                    <div class="img">
+                                        <img src="assets/img/kominfo.png" class="mx-auto d-block mb-1" width="auto" height="80px">
+                                        <h1 class="h4 text-gray-900 mb-3">SIMDIK</h1>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
-                                        <?= form_error('password', '<small class="text-danger pl-3">', '</small'); ?>
+                                    <h1 class="h6 text-gray-900 mb-4">Sistem Informasi Magang DISKOMINFO Makassar</h1>
+
+
+                                    <?= $this->session->flashdata('message') ?>
+
+                                    <form class="user" method="POST" action="<?= base_url('auth'); ?>">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" id="email" name="email" value="<?= set_value('email'); ?>" placeholder="Email Address">
+                                            <?= form_error('email', '<small class="text-danger pl-3">', '</small'); ?>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
+                                            <?= form_error('password', '<small class="text-danger pl-3">', '</small'); ?>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                            Masuk
+                                        </button>
+
+                                    </form>
+
+                                    <div class="text-center">
+                                        <a class="small" href="<?= base_url('auth/registration'); ?>">Belum punya akun? Daftar</a>
                                     </div>
-
-                                    <button type="submit" class="btn btn-primary btn-user btn-block">
-                                        Masuk
-                                    </button>
-
-                                </form>
-
-
-                                <div class="text-center">
-                                    <a class="small" href="<?= base_url('auth/registration'); ?>">Belum punya akun? Daftar</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
 
     </div>
-
-</div>

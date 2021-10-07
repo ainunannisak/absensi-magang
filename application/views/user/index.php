@@ -22,9 +22,9 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <p class="card-title"><?= $user['name']; ?></p>
-                    <p class="card-text">Email : <?= $user['email']; ?></p>
-                    <p class="card-text">Asal : <?= $user['asal']; ?></p>
+                    <p class="card-title mb-1"><?= $user['name']; ?></p>
+                    <p class="card-text mb-1"><?= $user['email']; ?></p>
+                    <p class="card-text mb-4"><?= $user['asal']; ?></p>
                     <p class="card-text"><small class="text-muted">Terdaftar sejak : <?= date('d F Y', $user['date_created']); ?></small></p>
                 </div>
             </div>

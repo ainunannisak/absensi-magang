@@ -6,7 +6,7 @@
         <div class="sidebar-brand-icon">
             <i class="fas fa-address-card"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Absensi PKL</div>
+        <div class="sidebar-brand-text mx-3">SIMDIK</div>
     </a>
 
     <!-- Divider -->
@@ -40,14 +40,14 @@
 
     <!-- Nav Item - Kehadiran -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#kehadiran" aria-expanded="true" aria-controls="kehadiran">
             <i class="fas fa-fw fa-users"></i>
             <span>Kehadiran</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="kehadiran" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?= base_url('kehadiran/tabel_kehadiran') ?>">Kehadiran</a>
-                <a class="collapse-item" href="<?= base_url('kehadiran/konfirmasi_kehadiran') ?>">KonfirmasiKehadiran</a>
+                <a class="collapse-item" href="<?= base_url('kehadiran/konfirmasi_kehadiran') ?>">Konfirmasi Kehadiran</a>
+                <a class="collapse-item" href="<?= base_url('kehadiran/tabel_kehadiran') ?>">Tabel Kehadiran</a>
                 <a class="collapse-item" href="<?= base_url('kehadiran/rekap_kehadiran') ?>">Rekap</a>
             </div>
         </div>

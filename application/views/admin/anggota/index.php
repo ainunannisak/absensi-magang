@@ -33,7 +33,6 @@
                 <td><?= $user['name'] ?></td>
                 <td><?= $user['asal'] ?></td>
                 <td>
-                    <a href="<?= base_url('anggota/edit/' . $user['id_users']) ?>" class="btn btn-warning btn-sm text-light">Edit</a>
                     <a href="<?= base_url('anggota/delete/' . $user['id_users']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus ini ?')">Hapus</a>
                 </td>
             </tr>
