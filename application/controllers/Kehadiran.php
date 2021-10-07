@@ -17,7 +17,7 @@ class Kehadiran extends CI_Controller
         $data['title']   = 'Tabel Kehadiran';
         $data['page']      = 'admin/kehadiran/tabel';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['absensi'] = $this->kehadiran->getAllKehadiranPerDay();
+        $data['absensi'] = $this->kehadiran->getAllKehadiran();
 
         $this->load->view('templates/app', $data);
     }
