@@ -19,27 +19,22 @@
             <th scope="col">Keterangan</th>
         </tr>
     </thead>
-    <tbody>
-        <?php $no = 1; ?>
-        <?php foreach ($absensi as $a) : ?>
-            <tr>
-                <td><?= $no++; ?></td>
-                <td><?= $a['name'] ?></td>
-                <td><?= $a['date'] ?></td>
-                <td><?= $a['position_name'] ?></td>
-                <td>
-                    <?php if ($a['information'] == 'M') : ?>
-                        <div class="badge badge-success">Masuk</div>
-                    <?php elseif ($a['information'] == 'I') : ?>
-                        <div class="badge badge-warning">Ijin</div>
-                    <?php else : ?>
-                        <div class="badge badge-danger">Sakit</div>
-                    <?php endif ?>
-                </td>
-            </tr>
-        <?php endforeach ?>
-    </tbody>
-    <tbody>
-
-    </tbody>
+    <?php $no = 1; ?>
+    <?php foreach ($absensi as $a) : ?>
+        <tr>
+            <td><?= $no++; ?></td>
+            <td><?= $a['name'] ?></td>
+            <td><?= $a['date'] ?></td>
+            <td><?= $a['position_name'] ?></td>
+            <td>
+                <?php if ($a['information'] == 'M') : ?>
+                    <div class="badge badge-success">Masuk</div>
+                <?php elseif ($a['information'] == 'I') : ?>
+                    <div class="badge badge-warning">Ijin</div>
+                <?php else : ?>
+                    <div class="badge badge-danger">Sakit</div>
+                <?php endif ?>
+            </td>
+        </tr>
+    <?php endforeach ?>
 </table>

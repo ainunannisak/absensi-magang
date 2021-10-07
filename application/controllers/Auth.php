@@ -39,14 +39,14 @@ class Auth extends CI_Controller
                         'role_id' => $user['role_id'],
                     ];
                     $this->session->set_userdata($data);
-                    // split content belum berfungsi. user admin masuk ke dashbooard user
+
                     if ($user['role_id'] == 1) {
                         redirect('admin');
                     } else {
                         redirect('user');
                     }
                 } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password anda salah</div>');
                     redirect('auth');
                 }
             } else {
@@ -54,7 +54,7 @@ class Auth extends CI_Controller
                 redirect('auth');
             }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email belum terdaftar</div>');
             redirect('auth');
         }
     }
@@ -67,7 +67,7 @@ class Auth extends CI_Controller
             'Email',
             'required|trim|valid_email|is_unique[user.email]',
             [
-                'is_unique' => 'This email has been already registered'
+                'is_unique' => 'Email ini telah terdaftar'
             ]
         );
         $this->form_validation->set_rules(
@@ -82,7 +82,7 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'ABSENSI MAGANG';
+            $data['title'] = 'PRESENSI MAGANG';
             $this->load->view('templates/auth_header', $data);
             $this->load->view('auth/registration');
             $this->load->view('templates/auth_footer');
@@ -98,7 +98,7 @@ class Auth extends CI_Controller
             ];
 
             $this->db->insert('user', $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Your account has been created</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun anda telah dibuat</div>');
             redirect('auth');
         }
     }
@@ -107,7 +107,7 @@ class Auth extends CI_Controller
     {
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role_id');
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Your have been logged out</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Anda telah keluar</div>');
         redirect('auth');
     }
 }
