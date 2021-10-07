@@ -45,7 +45,7 @@ class Anggota_model extends CI_Model
 
     public function deleteUser($id)
     {
-        $this->db->where('email', $id);
+        $this->db->where('id_users', $id);
         $this->db->delete('user');
     }
 }

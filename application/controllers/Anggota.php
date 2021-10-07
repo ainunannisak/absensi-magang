@@ -8,6 +8,7 @@ class Anggota extends CI_Controller
     {
         parent::__construct();
         is_admin();
+        is_login();
         $this->load->model('anggota_model', 'anggota');
     }
 
@@ -30,6 +31,19 @@ class Anggota extends CI_Controller
         $data['users'] = $this->anggota->getSiswas();
 
         $this->load->view('templates/app', $data);
+    }
+
+    public function delete($id)
+    {
+        $user    = $this->anggota->getDetailUser($id);
+        $this->anggota->deleteUser($id);
+        $this->session->set_flashdata('message', 'Data anggota berhasil dihapus.');
+
+        if ($user['position_id'] == 2) {
+            redirect(base_url('anggota/Mahasiswa'));
+        } else if ($user['position_id'] == 1) {
+            redirect(base_url('anggota/Siswa'));
+        }
     }
 }
 

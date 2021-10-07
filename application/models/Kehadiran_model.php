@@ -23,7 +23,7 @@ class Kehadiran_model extends CI_Model
         $this->db->join('user', 'presents.user_id = user.email');
         $this->db->join('positions', 'user.position_id = positions.id_positions');
         //$this->db->like('date', date('2021-10-04'));
-        $this->db->where('status', 0);
+        $this->db->where('status', 1);
         $this->db->order_by('id_presents', 'desc');
         return $this->db->get()->result_array();
     }

@@ -6,7 +6,7 @@
         <div class="sidebar-brand-icon">
             <i class="fas fa-address-card"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Absensi PKL</div>
+        <div class="sidebar-brand-text mx-3">SIMDIK</div>
     </a>
 
     <!-- Divider -->

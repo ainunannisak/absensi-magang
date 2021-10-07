@@ -50,7 +50,7 @@ class Auth extends CI_Controller
                     redirect('auth');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">This email has not been activated</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email ini belum diaktifkan</div>');
                 redirect('auth');
             }
         } else {
@@ -75,8 +75,8 @@ class Auth extends CI_Controller
             'Password',
             'required|trim|min_length[3]|matches[password2]',
             [
-                'matches' => 'Password do not match!',
-                'min_length' => 'Password too short'
+                'matches' => 'Password tidak cocok!',
+                'min_length' => 'Password terlalu pendek'
             ]
         );
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');

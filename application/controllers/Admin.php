@@ -8,6 +8,7 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         is_admin();
+        is_login();
         $this->load->model('admin_model', 'admin');
     }
 
