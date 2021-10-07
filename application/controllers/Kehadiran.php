@@ -14,6 +14,8 @@ class Kehadiran extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        is_admin();
+        is_login();
         $this->load->model('kehadiran_model', 'kehadiran');
         $this->load->helper('date');
     }

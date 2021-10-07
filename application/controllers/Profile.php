@@ -7,10 +7,10 @@ class Profile extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        is_login();
         $this->load->model('profile_model', 'profile');
         $this->load->model('anggota_model', 'anggota');
         $this->load->library('form_validation');
-        is_login();
     }
 
     public function index()
