@@ -22,7 +22,7 @@
 
                                     <form class="user" method="POST" action="<?= base_url('auth'); ?>">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="email" name="email" value="<?= set_value('email'); ?>" placeholder="Email Address">
+                                            <input type="text" class="form-control form-control-user" id="email" name="email" value="<?= set_value('email'); ?>" placeholder=" Alamat Email">
                                             <?= form_error('email', '<small class="text-danger pl-3">', '</small'); ?>
                                         </div>
                                         <div class="form-group">
