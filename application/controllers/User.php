@@ -31,6 +31,9 @@ class User extends CI_Controller
         $this->form_validation->set_rules('asal', 'Asal', 'required|trim', [
             'required' => 'Asal institusi tidak boleh kosong.'
         ]);
+        $this->form_validation->set_rules('jurusan', 'Jurusan', 'required|trim', [
+            'required' => 'Jurusan tidak boleh kosong.'
+        ]);
         $this->form_validation->set_rules('durasi', 'Durasi', 'required', [
             'required' => 'Durasi harus dipilih.'
         ]);
@@ -53,35 +56,32 @@ class User extends CI_Controller
                 'name'    => $this->input->post('name'),
                 'email'     => $this->input->post('email'),
                 'asal'     => $this->input->post('asal'),
+                'jurusan'    => $this->input->post('jurusan'),
                 'durasi'    => $this->input->post('durasi'),
-                'image' => $this->input->post('image'),
+                //'image' => $this->input->post('image'),
                 'position_id'  => $this->input->post('position_id')
             ];
 
+            // Jika foto diubah
+            if (!empty($_FILES['image']['name'])) {
+                $upload      = $this->profile->uploadImage();
 
-            if ((!isset($_FILES['image'])) || $_FILES['image']['size'] == 0) {
-                $this->form_validation->set_rules('validate_image', 'required', ['required' => 'The {field} field is required']);
-            } else {
-                // Jika foto diubah
-                if (!empty($_FILES['image']['name'])) {
-                    $upload      = $this->profile->uploadImage();
-
-                    // Jika upload berhasil
-                    if ($upload) {
-                        // Ambil data user
-                        $imageProfile = $this->profile->getProfile($id);
-                        // Hapus foto user sebelum di update
-                        if (file_exists('assets/img/image/' . $imageProfile['image']) && $imageProfile['image']) {
-                            unlink('assets/img/image/' . $imageProfile['image']);
-                        }
-
-                        // Timpa data foto dengan nama yg baru
-                        $data['image'] = $upload;
-                    } else {
-                        redirect(base_url("user/profile"));
+                // Jika upload berhasil
+                if ($upload) {
+                    // Ambil data user
+                    $imageProfile = $this->profile->getProfile($id);
+                    // Hapus foto user sebelum di update
+                    if (file_exists('assets/img/image/' . $imageProfile['image']) && $imageProfile['image']) {
+                        unlink('assets/img/image/' . $imageProfile['image']);
                     }
+
+                    // Timpa data foto dengan nama yg baru
+                    $data['image'] = $upload;
+                } else {
+                    redirect(base_url("user/profile"));
                 }
             }
+
 
             $this->profile->updateProfile($id, $data);
             $this->session->set_flashdata('message', 'Biodata Berhasil Diupdate. Silahkan login kembali untuk memperbaharui profile.');

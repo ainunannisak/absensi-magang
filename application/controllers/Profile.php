@@ -25,35 +25,6 @@ class Profile extends CI_Controller
 
         $this->load->view('templates/app', $data);
     }
-
-    public function edit()
-    {
-
-        if ($this->form_validation->run() == FALSE) {
-            $data['title']        = 'Ubah Anggota';
-            $data['page']        = 'admin/anggota/edit';
-            $id = $this->session->userdata('id');
-            $data['user']     = $this->anggota->getUser($id);
-            $data['position'] = $this->anggota->getPosition();
-
-            $this->load->view('templates/app', $data);
-        } else {
-            $data = [
-                'name' => $this->input->post('name'),
-                'position_id' => $this->input->post('position_id'),
-            ];
-
-            $id = $this->session->userdata('id');
-            $this->anggota->updateUser($id, $data);
-            $this->session->set_flashdata('message', 'Data anggota berhasil ditambahkan.');
-
-            if ($data['position_id'] == 1) {
-                redirect(base_url('anggota/Siswa'));
-            } else if ($data['position_id'] == 2) {
-                redirect(base_url('anggota/Mahasiswa'));
-            }
-        }
-    }
 }
 
 /* End of file Profile.php */
