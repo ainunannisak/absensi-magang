@@ -43,6 +43,22 @@
 </div>
 
 <div class="form-group row">
+    <label for="name" class="col-sm-2 col-form-label">Asal Institusi</label>
+    <div class="col-sm-6">
+        <input type="text" class="form-control" id="asal" name="asal" value="<?= $user['asal'] ?>">
+        <?= form_error('asal', '<small class="text-danger mt-1">', '</small>'); ?>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="name" class="col-sm-2 col-form-label">Jurusan</label>
+    <div class="col-sm-6">
+        <input type="text" class="form-control" id="jurusan" name="jurusan" value="<?= $user['jurusan'] ?>">
+        <?= form_error('jurusan', '<small class="text-danger mt-1">', '</small>'); ?>
+    </div>
+</div>
+
+<div class="form-group row">
     <label for="durasi" class="col-sm-2 col-form-label">Lama Magang</label>
     <div class="col-sm-6">
         <select name="durasi" class="form-control" id="durasi" aria-readonly="true">
