@@ -1,4 +1,5 @@
 <h2 class="mb-4"><?= $title ?></h2>
+<p class="mt-4">Kehadiran Bulan : <?= date('F') ?></p>
 
 <?php if ($this->session->flashdata('message')) : ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">

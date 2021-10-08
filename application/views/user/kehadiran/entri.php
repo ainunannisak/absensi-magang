@@ -24,7 +24,11 @@
                 <label for="date" class="col-sm-2 col-form-label">Tanggal</label>
                 <div class="col-sm-6">
                     <?php date_default_timezone_set('Asia/Makassar'); ?>
+<<<<<<< HEAD
                     <input type="text" class="form-control-plaintext" name="date" value="<?= date('D, d-M-Y') ?>">
+=======
+                    <input type="text" class="form-control-plaintext" name="date" value="<?= date('l, d F Y') ?>">
+>>>>>>> test
                 </div>
             </div>
 
