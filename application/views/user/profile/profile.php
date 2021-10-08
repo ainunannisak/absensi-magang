@@ -87,13 +87,6 @@
     </div>
 </div>
 
-<div class="form-group row">
-    <label for="name" class="col-sm-2 col-form-label">Asal Institusi</label>
-    <div class="col-sm-6">
-        <input type="text" class="form-control" id="asal" name="asal" value="<?= $user['asal'] ?>">
-        <?= form_error('asal', '<small class="text-danger mt-1">', '</small>'); ?>
-    </div>
-</div>
 
 <div class="form-group row">
     <label for="image" class="col-sm-2 col-form-label">Foto</label>
