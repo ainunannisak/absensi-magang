@@ -20,8 +20,8 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('user/profile') ?>">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Profile</span></a>
+            <i class="fas fa-fw fa-user-edit"></i>
+            <span>Edit Profil</span></a>
     </li>
 
     <!-- Nav Item - Kehadiran -->

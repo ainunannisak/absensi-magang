@@ -48,7 +48,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="<?= base_url('kehadiran/konfirmasi_kehadiran') ?>">Konfirmasi Kehadiran</a>
                 <a class="collapse-item" href="<?= base_url('kehadiran/tabel_kehadiran') ?>">Tabel Kehadiran</a>
-                <a class="collapse-item" href="<?= base_url('kehadiran/rekap_kehadiran') ?>">Rekap</a>
+                <a class="collapse-item" href="<?= base_url('kehadiran/rekap_kehadiran') ?>">Rekap Kehadiran</a>
             </div>
         </div>
     </li>

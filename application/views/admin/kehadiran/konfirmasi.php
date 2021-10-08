@@ -15,8 +15,8 @@
             <th scope="col">#</th>
             <th scope="col">Nama</th>
             <th scope="col">Keterangan</th>
-            <th scope="col">Tgl/Bln/Thn</th>
-            <th scope="col">Pukul</th>
+            <th scope="col">Tanggal</th>
+            <th scope="col">Jam</th>
             <th>Aksi</th>
         </tr>
     </thead>

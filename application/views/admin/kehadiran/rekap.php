@@ -17,7 +17,7 @@
             <th scope="col">Status</th>
             <th scope="col">Hadir</th>
             <th scope="col">Sakit</th>
-            <th scope="col">Ijin</th>
+            <th scope="col">Izin</th>
             <th scope="col">Total</th>
         </tr>
     </thead>
