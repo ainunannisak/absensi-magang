@@ -5,7 +5,7 @@
     <thead>
         <tr>
             <th>No</th>
-            <th>Tgl/Bln/Thn</th>
+            <th>Tanggal</th>
             <th>Jam</th>
             <th>Keterangan</th>
             <th>Informasi</th>

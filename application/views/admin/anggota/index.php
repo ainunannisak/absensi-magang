@@ -16,6 +16,8 @@
             <th scope="col">Foto</th>
             <th scope="col">Nama</th>
             <th>Asal Institusi</th>
+            <th scope="col">Jurusan</th>
+            <th scope="col">Lama Magang</th>
         </tr>
     </thead>
     <tbody>
@@ -32,6 +34,8 @@
                 </td>
                 <td><?= $user['name'] ?></td>
                 <td><?= $user['asal'] ?></td>
+                <td><?= $user['jurusan'] ?></td>
+                <td><?= $user['durasi'] ?> Bulan</td>
                 <td>
                     <a href="<?= base_url('anggota/delete/' . $user['id_users']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus ini ?')">Hapus</a>
                 </td>
