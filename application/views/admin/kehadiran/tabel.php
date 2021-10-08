@@ -1,4 +1,5 @@
 <h2 class="mb-4"><?= $title ?></h2>
+<p class="mt-4">Kehadiran Bulan : <?= date('F') ?></p>
 
 <?php if ($this->session->flashdata('message')) : ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -14,7 +15,7 @@
         <tr>
             <th scope="col">No</th>
             <th scope="col">Nama</th>
-            <th scope="col">Tgl/Bln/Thn</th>
+            <th scope="col">Tanggal</th>
             <th scope="col">Status</th>
             <th scope="col">Keterangan</th>
         </tr>
@@ -30,7 +31,7 @@
                 <?php if ($a['information'] == 'M') : ?>
                     <div class="badge badge-success">Masuk</div>
                 <?php elseif ($a['information'] == 'I') : ?>
-                    <div class="badge badge-warning">Ijin</div>
+                    <div class="badge badge-warning">Izin</div>
                 <?php else : ?>
                     <div class="badge badge-danger">Sakit</div>
                 <?php endif ?>

@@ -1,5 +1,6 @@
 <h2 class="mb-4"><?= $title ?></h2>
 <p class="mt-4">Kehadiran Bulan : <?= date('F') ?></p>
+
 <?php if ($this->session->flashdata('message')) : ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         <?= $this->session->flashdata('message') ?>
@@ -17,7 +18,7 @@
             <th scope="col">Status</th>
             <th scope="col">Hadir</th>
             <th scope="col">Sakit</th>
-            <th scope="col">Ijin</th>
+            <th scope="col">Izin</th>
             <th scope="col">Total</th>
         </tr>
     </thead>
