@@ -10,60 +10,67 @@
     </div>
 <?php endif ?>
 
-<div class="mb-3 sm-4">
-    <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Cari nama">
+<head>
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js" defer></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js" defer></script>
+
+    <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="<?= base_url('assets/'); ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+</head>
+
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered text-center" id="myTable">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Tanggal</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Keterangan</th>
+                </tr>
+            </thead>
+            <?php $no = 1; ?>
+            <?php foreach ($absensi as $a) : ?>
+                <tr>
+                    <td><?= $no++; ?></td>
+                    <td><?= $a['name'] ?></td>
+                    <td><?= $a['date'] ?></td>
+                    <td><?= $a['position_name'] ?></td>
+                    <td>
+                        <?php if ($a['information'] == 'M') : ?>
+                            <div class="badge badge-success">Masuk</div>
+                        <?php elseif ($a['information'] == 'I') : ?>
+                            <div class="badge badge-warning">Izin</div>
+                        <?php else : ?>
+                            <div class="badge badge-danger">Sakit</div>
+                        <?php endif ?>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+        </table>
+    </div>
 </div>
-<table class="table table-bordered text-center" id="myTable">
-    <thead>
-        <tr>
-            <th scope="col">No</th>
-            <th scope="col">Nama</th>
-            <th scope="col">Tanggal</th>
-            <th scope="col">Status</th>
-            <th scope="col">Keterangan</th>
-        </tr>
-    </thead>
-    <?php $no = 1; ?>
-    <?php foreach ($absensi as $a) : ?>
-        <tr>
-            <td><?= $no++; ?></td>
-            <td><?= $a['name'] ?></td>
-            <td><?= $a['date'] ?></td>
-            <td><?= $a['position_name'] ?></td>
-            <td>
-                <?php if ($a['information'] == 'M') : ?>
-                    <div class="badge badge-success">Masuk</div>
-                <?php elseif ($a['information'] == 'I') : ?>
-                    <div class="badge badge-warning">Izin</div>
-                <?php else : ?>
-                    <div class="badge badge-danger">Sakit</div>
-                <?php endif ?>
-            </td>
-        </tr>
-    <?php endforeach ?>
-</table>
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Bootstrap core JavaScript-->
+<script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
+<script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="<?= base_url('assets/'); ?>vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= base_url('assets/'); ?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+
 
 <script>
-    function myFunction() {
-        // Declare variables
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
-
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            //Get Names
-            td = tr[i].getElementsByTagName("td")[1];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
 </script>

@@ -9,7 +9,8 @@
     </div>
 <?php endif ?>
 
-<table class="table table-bordered text-center">
+
+<table class="table table-bordered text-center" id="anggotaTable">
     <thead>
         <tr>
             <th scope="col">No</th>
@@ -43,3 +44,9 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
