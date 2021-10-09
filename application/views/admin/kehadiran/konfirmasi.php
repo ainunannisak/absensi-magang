@@ -17,11 +17,7 @@
             <th scope="col">Nama</th>
             <th scope="col">Keterangan</th>
             <th scope="col">Tanggal</th>
-<<<<<<< HEAD
             <th scope="col">Jam</th>
-=======
-            <th scope="col">Pukul</th>
->>>>>>> test
             <th>Aksi</th>
         </tr>
     </thead>
