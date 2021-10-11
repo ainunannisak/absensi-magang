@@ -28,6 +28,13 @@
     </div>
 </div>
 
+<div class="form-group row">
+    <label for="nomorhp" class="col-sm-2 col-form-label">Nomor HP</label>
+    <div class="col-sm-6">
+        <input type="nomorhp" class="form-control" id="nomorhp" name="nomorhp" value="<?= $user['nomorhp'] ?>">
+        <?= form_error('nomorhp', '<small class="text-danger mt-1">', '</small>'); ?>
+    </div>
+</div>
 
 <div class="form-group row">
     <label for="position" class="col-sm-2 col-form-label">Status</label>
