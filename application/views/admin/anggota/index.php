@@ -16,6 +16,9 @@
             <th scope="col">No</th>
             <th scope="col">Foto</th>
             <th scope="col">Nama</th>
+            <th scope="col">Nomor HP</th>
+            <th scope="col">Alamat</th>
+            <th scope="col">Sosial Media</th>
             <th>Asal Institusi</th>
             <th scope="col">Jurusan</th>
             <th scope="col">Lama Magang</th>
@@ -34,6 +37,9 @@
                     <?php endif; ?>
                 </td>
                 <td><?= $user['name'] ?></td>
+                <td><?= $user['nomorhp'] ?></td>
+                <td><?= $user['alamat'] ?></td>
+                <td><?= $user['sosmed'] ?></td>
                 <td><?= $user['asal'] ?></td>
                 <td><?= $user['jurusan'] ?></td>
                 <td><?= $user['durasi'] ?> Bulan</td>

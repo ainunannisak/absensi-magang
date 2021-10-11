@@ -26,7 +26,7 @@
 
     <!-- Nav Item - Kehadiran -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-address-book"></i>
             <span>Kehadiran</span>
         </a>
@@ -37,6 +37,12 @@
                 <a class="collapse-item" href="<?= base_url('absensi/tabel') ?>">Tabel Kehadiran</a>
             </div>
         </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('auth/logout') ?>">
+            <i class="fas fa-fw fa-sign-out-alt"></i>
+            <span>Keluar</span></a>
     </li>
 
     <!-- Divider -->

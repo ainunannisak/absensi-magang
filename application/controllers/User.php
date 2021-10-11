@@ -28,6 +28,15 @@ class User extends CI_Controller
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email', [
             'required' => 'Email tidak boleh kosong.'
         ]);
+        $this->form_validation->set_rules('nomorhp', 'Nomor HP', 'required|trim', [
+            'required' => 'Nomor HP tidak boleh kosong.'
+        ]);
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim', [
+            'required' => 'Alamat tidak boleh kosong.'
+        ]);
+        $this->form_validation->set_rules('sosmed', 'Sosial Media', 'required|trim', [
+            'required' => 'Sosial Media tidak boleh kosong.'
+        ]);
         $this->form_validation->set_rules('asal', 'Asal', 'required|trim', [
             'required' => 'Asal institusi tidak boleh kosong.'
         ]);
@@ -55,6 +64,9 @@ class User extends CI_Controller
             $data = [
                 'name'    => $this->input->post('name'),
                 'email'     => $this->input->post('email'),
+                'nomorhp'     => $this->input->post('nomorhp'),
+                'alamat'     => $this->input->post('alamat'),
+                'sosmed'     => $this->input->post('sosmed'),
                 'asal'     => $this->input->post('asal'),
                 'jurusan'    => $this->input->post('jurusan'),
                 'durasi'    => $this->input->post('durasi'),
