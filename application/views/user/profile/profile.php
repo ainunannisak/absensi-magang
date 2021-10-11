@@ -37,6 +37,22 @@
 </div>
 
 <div class="form-group row">
+    <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+    <div class="col-sm-6">
+        <input type="alamat" class="form-control" id="alamat" name="alamat" value="<?= $user['alamat'] ?>">
+        <?= form_error('alamat', '<small class="text-danger mt-1">', '</small>'); ?>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="sosmed" class="col-sm-2 col-form-label">Sosial Media</label>
+    <div class="col-sm-6">
+        <input type="sosmed" class="form-control" id="sosmed" name="sosmed" value="<?= $user['sosmed'] ?>">
+        <?= form_error('sosmed', '<small class="text-danger mt-1">', '</small>'); ?>
+    </div>
+</div>
+
+<div class="form-group row">
     <label for="position" class="col-sm-2 col-form-label">Status</label>
     <div class="col-sm-6">
         <select name="position_id" class="form-control" aria-readonly="true">
