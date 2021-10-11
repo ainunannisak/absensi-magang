@@ -10,6 +10,7 @@ class Admin extends CI_Controller
         is_admin();
         is_login();
         $this->load->model('admin_model', 'admin');
+        $this->load->model('dashboard_model', 'dashboard');
     }
 
     public function index()
@@ -17,6 +18,10 @@ class Admin extends CI_Controller
         $data['title'] = 'Dashboard';
         $data['page'] = 'admin/dashboard';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['anggotaM'] = $this->dashboard->anggotaM();
+        $data['anggotaS'] = $this->dashboard->anggotaS();
+        $data['kehadiran_dikonfirmasi'] = $this->dashboard->kehadiran_dikonfirmasi();
+        $data['menunggu_konfirmasi'] = $this->dashboard->menunggu_konfirmasi();
         $this->load->view('templates/app', $data);
     }
 

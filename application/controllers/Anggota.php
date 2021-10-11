@@ -12,7 +12,6 @@ class Anggota extends CI_Controller
         $this->load->model('anggota_model', 'anggota');
     }
 
-
     public function Mahasiswa()
     {
         $data['title']    = 'Mahasiswa';

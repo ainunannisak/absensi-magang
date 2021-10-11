@@ -22,6 +22,7 @@ class Anggota_model extends CI_Model
         return $this->db->get()->result_array();
     }
 
+
     public function getDetailUser($id)
     {
         return $this->db->get_where('user', ['id_users' => $id])->row_array();
