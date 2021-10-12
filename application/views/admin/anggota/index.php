@@ -10,6 +10,13 @@
 <?php endif ?>
 
 
+<div class="form-group row">
+    <label for="sosmed" class="col-sm-1 col-form-label">Cari :</label>
+    <div class="col-xs-5">
+        <input type="text" class="form-control" id="Input" onkeyup="myFunction()" placeholder="Nama">
+    </div>
+</div>
+
 <table class="table table-bordered text-center" id="anggotaTable">
     <thead>
         <tr>
@@ -51,6 +58,29 @@
     </tbody>
 </table>
 
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("Input");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("anggotaTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
