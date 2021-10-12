@@ -11,10 +11,10 @@ class Auth extends CI_Controller
 
     public function index()
     {
-        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required');
+        $this->form_validation->set_rules('email', 'email', 'trim|required|valid_email');
+        $this->form_validation->set_rules('password', 'password', 'trim|required');
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'Login page';
+            $data['title'] = 'SIMDIK Login';
             $this->load->view('templates/auth_header', $data);
             $this->load->view('auth/login');
             $this->load->view('templates/auth_footer');
@@ -50,7 +50,7 @@ class Auth extends CI_Controller
                     redirect('auth');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email ini belum diaktifkan</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email ini belum terdaftar</div>');
                 redirect('auth');
             }
         } else {
@@ -61,7 +61,7 @@ class Auth extends CI_Controller
 
     public function registration()
     {
-        $this->form_validation->set_rules('name', 'Name', 'required|trim');
+        $this->form_validation->set_rules('name', 'Nama', 'required|trim');
         $this->form_validation->set_rules(
             'email',
             'Email',
@@ -73,7 +73,7 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules(
             'password1',
             'Password',
-            'required|trim|min_length[3]|matches[password2]',
+            'required|trim|min_length[4]|matches[password2]',
             [
                 'matches' => 'Password tidak cocok!',
                 'min_length' => 'Password terlalu pendek'
@@ -98,7 +98,7 @@ class Auth extends CI_Controller
             ];
 
             $this->db->insert('user', $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun anda telah dibuat</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun anda berhasil dibuat</div>');
             redirect('auth');
         }
     }

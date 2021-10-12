@@ -9,6 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <link rel="icon" type="image/x-icon" href="<?= base_url('assets/img/favicon.ico') ?>" />
     <title>SIMDIK Masuk</title>
 
     <!-- Custom fonts for this template-->
@@ -19,5 +20,12 @@
     <link href="<?= base_url('assets/') ?>css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+
+<style class="text/css">
+    body {
+        background: url(assets/img/bg.jpg) no-repeat;
+        background-size: cover;
+    }
+</style>
 
 <body class="bg-light">

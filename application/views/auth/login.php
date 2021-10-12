@@ -1,10 +1,3 @@
-<style class="text/css">
-    body {
-        background: url(assets/img/bg.jpg) no-repeat;
-        background-size: cover;
-    }
-</style>
-
 <body>
     <div class="container">
 
@@ -20,7 +13,7 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <div class="img">
-                                            <img src="assets/img/kominfo.png" class="mx-auto d-block mb-1" width="auto" height="80px">
+                                            <img src="<?= base_url('assets/img/kominfo.png') ?>" class="mx-auto d-block mb-1" width="auto" height="80px">
                                             <h1 class="h4 text-gray-900 mb-3">SIMDIK</h1>
                                         </div>
                                         <h1 class="h6 text-gray-900 mb-4">Sistem Informasi Magang DISKOMINFO Makassar</h1>
@@ -43,7 +36,7 @@
                                             </button>
 
                                         </form>
-
+                                        <hr>
                                         <div class="text-center">
                                             <a class="small" href="<?= base_url('auth/registration'); ?>">Belum punya akun? Daftar</a>
                                         </div>
