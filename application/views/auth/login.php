@@ -23,12 +23,12 @@
 
                                         <form class="user" method="POST" action="<?= base_url('auth'); ?>">
                                             <div class="form-group">
-                                                <input type="text" class="form-control form-control-user" id="email" name="email" value="<?= set_value('email'); ?>" placeholder=" Alamat Email">
-                                                <?= form_error('email', '<small class="text-danger pl-3">', '</small'); ?>
+                                                <input type="text" class="form-control form-control-user mb-1" id="email" name="email" value="<?= set_value('email'); ?>" placeholder=" Alamat Email">
+                                                <?= form_error('email', '<small class="text-danger pl-2">', '</small>'); ?>
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
-                                                <?= form_error('password', '<small class="text-danger pl-3">', '</small'); ?>
+                                                <input type="password" class="form-control form-control-user mb-1" id="password" name="password" placeholder="Password">
+                                                <?= form_error('password', '<small class="text-danger pl-2">', '</small>'); ?>
                                             </div>
 
                                             <button type="submit" class="btn btn-primary btn-user btn-block mb-2">

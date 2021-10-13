@@ -27,7 +27,7 @@ class Admin extends CI_Controller
 
     public function profile()
     {
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[users.email]', [
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
             'required' => 'Email tidak boleh kosong.',
             'is_unique' => 'Email sudah terdaftar.'
         ]);
@@ -43,6 +43,7 @@ class Admin extends CI_Controller
         } else {
             $data = [
                 'email' => $this->input->post('email'),
+                'name' => $this->input->post('name'),
 
             ];
 
